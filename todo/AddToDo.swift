@@ -11,6 +11,7 @@ var todoItem = [String]()
 class AddToDo: UIViewController {
 
     @IBOutlet weak var itemText: UITextField!
+    
     @IBAction func addItem(_ sender: UIBarButtonItem) {
         todoItem.append(itemText.text!)
         itemText.text = ""
