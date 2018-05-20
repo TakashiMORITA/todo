@@ -7,20 +7,23 @@
 //
 
 import UIKit
-var todoItem = [String]()
+var todoItem = [Any]()
 class AddToDo: UIViewController {
 
     @IBOutlet weak var itemText: UITextField!
     
     @IBAction func addItem(_ sender: UIBarButtonItem) {
+        if(itemText.text != ""){
         todoItem.append(itemText.text!)
         itemText.text = ""
         UserDefaults.standard.set(todoItem, forKey: "todoList")
+        }
     }
-    
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
