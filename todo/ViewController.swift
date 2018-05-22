@@ -34,7 +34,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
         if editingStyle == UITableViewCellEditingStyle.delete{
             todoItem.remove(at: indexPath.row)
-            UserDefaults.standard.set(todoItem, forKey: "todoList")
+            UserDefaults.standard.set(todoTime, forKey: "todoList")
             todolistTable.reloadData()
         }
     }

@@ -8,18 +8,24 @@
 
 import UIKit
 var todoItem = [Any]()
+var todoTime = [Any]()
+
 class AddToDo: UIViewController {
 
     @IBOutlet weak var itemText: UITextField!
     
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
     @IBAction func addItem(_ sender: UIBarButtonItem) {
         if(itemText.text != ""){
         todoItem.append(itemText.text!)
+        todoTime.append("\(datePicker.date)")
         itemText.text = ""
         UserDefaults.standard.set(todoItem, forKey: "todoList")
+        
         }
     }
-
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
