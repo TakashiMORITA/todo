@@ -54,7 +54,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="133.5832083958021"/>
+            <point key="canvasLocation" x="993" y="120"/>
         </scene>
         <!--TODO ITEM-->
         <scene sceneID="ZcD-TF-LOj">
@@ -95,20 +95,16 @@
                                     <action selector="timeTextField:" destination="5Lt-Bv-QkO" eventType="editingDidBegin" id="Q4t-XK-gHd"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="タグ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOz-M6-fKZ">
-                                <rect key="frame" x="52" y="253" width="35" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qV7-fm-s8h">
                                 <rect key="frame" x="52" y="282" width="270" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="プライベート"/>
-                                    <segment title="仕事"/>
+                                    <segment title="Private"/>
+                                    <segment title="Work"/>
                                 </segments>
+                                <connections>
+                                    <action selector="categoryChosen:" destination="5Lt-Bv-QkO" eventType="valueChanged" id="fVS-sF-nxb"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -128,7 +124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5nL-9a-dUS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1794.4000000000001" y="132.68365817091455"/>
+            <point key="canvasLocation" x="1793" y="134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="i57-1T-74t">

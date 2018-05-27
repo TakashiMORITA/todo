@@ -7,6 +7,12 @@
 //
 
 import UIKit
+
+//private用の配列
+var todoItemPrivate = [Any]()
+//Work用の配列
+var todoItemWork = [Any]()
+
 var todoItem = [Any]()
 var todoTime = [Any]()
 
@@ -39,13 +45,29 @@ class AddToDo: UIViewController {
         timeText.resignFirstResponder()
     }
     
-    @IBAction func addItem(_ sender: UIBarButtonItem) {
-        if(itemText.text != ""){
-        todoItem.append(itemText.text!)
-        itemText.text = ""
-        UserDefaults.standard.set(todoItem, forKey: "todoList")
+//    @IBAction func addItem(_ sender: UIBarButtonItem) {
+//        if(itemText.text != ""){
+//        todoItem.append(itemText.text!)
+//        itemText.text = ""
+//        UserDefaults.standard.set(todoItem, forKey: "todoList")
+//        }
+//    }
+    
+    //tagごとに別の配列に保存する
+    @IBAction func addItem(_ sender: UIBarButtonItem){
+        if(itemText.text != "")&&(timeText.text != ""){
+            if(taskCategory == "Private"){
+                todoItemPrivate.append(itemText.text!)
+                UserDefaults.standard.set(todoItemPrivate, forKey: "todoListPrivate")
+            }else {
+                todoItemWork.append(itemText.text!)
+                UserDefaults.standard.set(todoItemWork, forKey: "todoListWork")
+            }
+            itemText.text = ""
+            timeText.text = ""
         }
     }
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -68,6 +90,20 @@ class AddToDo: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //tag管理用
+    var taskCategory = "Private"
+    
+    @IBAction func categoryChosen(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            taskCategory = "Private"
+        case 1:
+            taskCategory = "Work"
+        default:
+            taskCategory = "Private"
+        }
     }
     
 
